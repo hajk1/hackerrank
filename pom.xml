@@ -6,7 +6,10 @@
 
   <groupId>ir.hajk1</groupId>
   <artifactId>hackerrank</artifactId>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-
+  <modules>
+    <module>zos</module>
+  </modules>
 
 </project>
