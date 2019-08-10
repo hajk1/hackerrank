@@ -10,6 +10,7 @@
   <version>1.0-SNAPSHOT</version>
   <modules>
     <module>zos</module>
+    <module>calendar</module>
   </modules>
 
 </project>
