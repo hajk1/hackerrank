@@ -30,7 +30,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>ir.hajk1.zos.TestMd5</mainClass>
+              <mainClass>ir.ir.hajk1.zos.TestMd5</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
