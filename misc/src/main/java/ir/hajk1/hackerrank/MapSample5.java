@@ -1,6 +1,10 @@
 package ir.hajk1.hackerrank;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Scanner;
 
 public class MapSample5 {
     public static final String EXIT = "exit", ADD = "add", GET = "get", EVICT = "evict", REMOVE = "remove";
