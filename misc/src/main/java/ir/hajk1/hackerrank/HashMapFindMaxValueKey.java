@@ -21,7 +21,7 @@ public class HashMapFindMaxValueKey {
     System.out.println("hashMapMax = " + hashMapMax.findMaxIndex());
   }
 
-  private int findMaxIndex() {
+  private Integer findMaxIndex() {
     return map.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue))
         .map(Map.Entry::getKey).orElse(null);
   }
