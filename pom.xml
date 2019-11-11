@@ -12,6 +12,9 @@
     <module>zos</module>
     <module>calendar</module>
     <module>misc</module>
+    <module>redison</module>
+    <module>spring-ws-client</module>
+    <module>springSoapConsumer</module>
   </modules>
 
 </project>

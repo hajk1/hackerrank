@@ -1,6 +1,7 @@
 package ir.hajk1.hackerrank;
 
 import java.util.Comparator;
+import java.util.Currency;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +20,14 @@ public class HashMapFindMaxValueKey {
     hashMapMax.map.put(1, 0);
     hashMapMax.map.put(5, 1);
     System.out.println("hashMapMax = " + hashMapMax.findMaxIndex());
+    for (Currency availableCurrency : Currency.getAvailableCurrencies()) {
+      System.out.println("Currency.getAvailableCurrencies() = " + availableCurrency);
+    }
+    Currency currency = Currency.getInstance("IRR");
+    System.out.println(currency.getSymbol());
+    System.out.println(currency.getCurrencyCode());
+    System.out.println(currency.getDisplayName());
+
   }
 
   private Integer findMaxIndex() {
