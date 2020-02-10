@@ -8,6 +8,9 @@ package ir.hajk1.hackerrank;
 public class Test {
 
   public static void main(String[] args) {
+    String line = "/OTHR/";
+    System.out.println("line = " + line);
+
     String ourString = "Hello Istanbul";
     ourString.concat(" Go");
     String newString = (ourString.length() > 10) ? "long String" : "Ok";
