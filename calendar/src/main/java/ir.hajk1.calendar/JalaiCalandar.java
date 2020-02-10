@@ -15,14 +15,18 @@ public class JalaiCalandar {
 
   public static void main(String[] args) throws ParseException {
     ULocale locale = new ULocale("fa_IR@calendar=persian");
+    ULocale locale2 = new ULocale("en_US@calendar=persian");
 
     Calendar calendar = Calendar.getInstance(locale);
     DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, locale);
     DateFormat df2 = new SimpleDateFormat("yyyy/MM/dd", locale);
+    DateFormat df3 = new SimpleDateFormat("yyyy/MM/dd", locale2);
 
     System.out.println(df.format(calendar));
     System.out.println(df2.format(calendar));
+    System.out.println(df3.format(calendar));
     System.out.println(df2.parse("1359/02/01"));
+    System.out.println(df3.parse("1359/02/01"));
   }
 
 }

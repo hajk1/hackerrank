@@ -1,0 +1,10 @@
+<bindings xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" version="2.0"
+  xmlns="http://java.sun.com/xml/ns/jaxb"
+>
+
+  <globalBindings>
+    <xjc:serializable uid="12343"/>
+    <xjc:simple/>
+  </globalBindings>
+
+</bindings>
