@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Stream;
 
 /**
@@ -33,6 +34,7 @@ public class BtejReconcil {
     String saflog = path + "TBSAFLOGACH-ALL-change.txt";
     String cmPlus = path + "cm-plus.txt";
     PrintWriter pw = new PrintWriter(new FileWriter(cmPlus, true));
+    AtomicLong counter = new AtomicLong(0);
     try (Stream<String> stream = Files.lines(Paths.get(saflog))) {
       stream.forEach(t -> {
         createConnection();
@@ -48,6 +50,9 @@ public class BtejReconcil {
         } catch (SQLException e) {
           e.printStackTrace();
         }
+        long time1 = System.nanoTime() - start1;
+        System.out
+            .printf("Took %.3f seconds to process %d%n", time1 / 1e9, counter.getAndIncrement());
       });
     } catch (IOException e) {
       e.printStackTrace();
