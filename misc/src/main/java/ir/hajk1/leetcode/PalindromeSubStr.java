@@ -20,7 +20,8 @@ public class PalindromeSubStr {
         int start = 0, end = 0;
         if (s.length() == 1)
             return s;
-        for (int i = 0; i < s.length(); i++) {
+        int i = 0;
+        while (i < s.length() && (s.length() - i > (end - start + 1))) {
             int j = s.length() - 1;
             while (j >= i) {
                 if ((j - i) > (end - start) - 1) {
@@ -31,6 +32,7 @@ public class PalindromeSubStr {
                 }
                 j--;
             }
+            i++;
         }
         return s.substring(start, end + 1);
     }
