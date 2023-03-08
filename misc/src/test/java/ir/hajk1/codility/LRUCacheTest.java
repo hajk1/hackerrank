@@ -16,6 +16,9 @@ public class LRUCacheTest {
 
   static Stream<Arguments> inputProvider() {
     return Stream.of(
+        arguments(2, new String[] {"get", "put", "get", "put", "put", "get", "get"},
+            new int[][] {{2}, {2, 6}, {1}, {1, 5}, {1, 2}, {1}, {2}},
+            new Integer[] {-1, null, -1, null, null, 2, 6}),
         arguments(2, new String[] {"put", "put", "get", "put", "put", "get"},
             new int[][] {{2, 1}, {2, 2}, {2}, {1, 1}, {4, 1}, {2}},
             new Integer[] {null, null, 2, null, null, -1}),
