@@ -11,6 +11,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+/**
+ * The problem file can be found on resources navanChallenge.txt
+ */
 public class NavanChallenge {
 
     /*

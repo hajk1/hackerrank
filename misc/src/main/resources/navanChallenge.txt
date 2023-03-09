@@ -1,4 +1,3 @@
-
 Degree of an Array
 Description
 Given an array of integers, its degree is defined as the number of occurrences of the element that occurs most frequently in the array. Given a list of integers, determine two properties:
@@ -62,60 +61,3 @@ The array arr  has a degree of 2 based on elements values 1 and 2 because each o
 
 
 Return minimum( 2, 5 ) = 2
-
-Sample Case 1
-Java 15
-19202122237424284226303536434449594645515256535554575862736368724748506061716970254039373827413133322934757664656766
-        for (Integer i : keys) {
-            Deque<Integer> que = dequeMap.get(i);
-            int start = que.peekFirst();
-            int end = que.peekLast();
-
-            List<Integer> list = arr.subList(start, end+1);
-                            System.out.println("sub list: " +list);
-
-            sizeSet.add(list.size());
-        }
-
-Line: 71 Col: 38
-
-Run Code
-
-Run Tests
-
-Chat Window
-
-
-
-Input / Output
-
-Test Cases
-Congratulations! All testcases have been passed.
-Test case passed:
-
-13/13
-
-Test case 0
-Input (stdin)
-5
-1
-2
-2
-3
-1
-Your Output (stdout)
-
-2
-Expected Output
-2
-Debug output
-
-i is 1
-max is 2
-i is 2
-max is 2
-i is 3
-max is 1
-keys: [1, 2]
-sub list: [1, 2, 2, 3, 1]
-sub list: [2, 2]
