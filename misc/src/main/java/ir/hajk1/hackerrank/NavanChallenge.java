@@ -1,19 +1,13 @@
 package ir.hajk1.hackerrank;
 
-import static java.util.stream.Collectors.toList;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.stream.IntStream;
 
 public class NavanChallenge {
 
@@ -54,9 +48,8 @@ public class NavanChallenge {
 
         Set<Integer> sizeSet = new TreeSet<>();
         for (Integer i : keys) {
-            List<Integer> list = arr.subList(arr.get(i), arr.lastIndexOf(i) + 1);
+            List<Integer> list = arr.subList(arr.indexOf(i), arr.lastIndexOf(i) + 1);
             System.out.println("sub list: " + list);
-
             sizeSet.add(list.size());
         }
         return sizeSet.stream().findFirst().get();
@@ -69,28 +62,9 @@ public class NavanChallenge {
 class Solution {
 
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        int[] arr = new int[] {1, 2, 2, 3, 1};
+        int result = NavanChallenge.degreeOfArray(Arrays.stream(arr).boxed().toList());
+        System.out.println("result = " + result);
 
-        int arrCount = Integer.parseInt(bufferedReader.readLine().trim());
-
-        List<Integer> arr = IntStream.range(0, arrCount).mapToObj(i -> {
-                try {
-                    return bufferedReader.readLine().replaceAll("\\s+$", "");
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-            })
-            .map(String::trim)
-            .map(Integer::parseInt)
-            .collect(toList());
-
-        int result = NavanChallenge.degreeOfArray(arr);
-
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
     }
 }
