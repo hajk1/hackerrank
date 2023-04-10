@@ -43,6 +43,35 @@ public class ListNode {
             }
             return result;
         }
+
+        public ListNode addTwoNumbers_v2(ListNode l1, ListNode l2) {
+            int parity = 0;
+            int sum = l1.val + l2.val;
+            ListNode result = new ListNode(sum % 10);
+            ListNode current = result;
+            ;
+            parity = sum / 10;
+
+            while (l1.next != null || l2.next != null || parity > 0) {
+                int l1tmp = 0, l2tmp = 0;
+                if (l1.next != null) {
+                    l1 = l1.next;
+                    l1tmp = l1.val;
+                }
+                if (l2.next != null) {
+                    l2 = l2.next;
+                    l2tmp = l2.val;
+                }
+                sum = l1tmp + l2tmp + parity;
+                ListNode tmp = new ListNode(sum % 10);
+                current.next = tmp;
+                current = current.next;
+                parity = sum / 10;
+
+            }
+            return result;
+
+        }
     }
 
 
