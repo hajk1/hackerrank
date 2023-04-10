@@ -1,39 +1,45 @@
 package ir.hajk1.codility;
 
-import java.util.LinkedHashMap;
+import java.util.ArrayDeque;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Queue;
 
 public class LRUCache {
 
     int capacity;
-    LinkedHashMap<Integer, Integer> cacheList;
+    Queue<Integer> cacheList = new ArrayDeque<>();
+
+    Map<Integer, Integer> cacheMap;
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
-        cacheList = new LinkedHashMap(capacity, 1, true);
+        cacheMap = new HashMap<>(capacity, 1);
     }
 
     public int get(int key) {
-        if (cacheList.containsKey(key)) {
-            return cacheList.get(key);
+        if (cacheMap.containsKey(key)) {
+            cacheList.remove(key);
+            cacheList.offer(key);
+            return cacheMap.get(key);
         }
+
         return -1;
     }
 
     public void put(int key, int value) {
-        if (cacheList.size() == capacity) {
-            if (!cacheList.containsKey(key)) {
-                cacheList.remove(cacheList.keySet().stream().findFirst().get());//71  ms
-            }
-            //cacheList.remove(cacheList.keySet().toArray()[0]);            //720 ms
+        if (cacheMap.size() == capacity && !cacheMap.containsKey(key)) {
+            Integer tempKey = cacheList.poll();
+            cacheMap.remove(tempKey);
+            cacheList.remove(tempKey);
         }
-        cacheList.put(key, value);
+
+        cacheList.remove(key);
+        cacheMap.remove(key);
+        cacheList.offer(key);
+        cacheMap.put(key, value);
     }
-
-
 }
-
-
-
 
 
 
