@@ -1,15 +1,7 @@
 package ir.hajk1.hackerrank;
 
 import java.io.IOException;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * The problem file can be found on resources navanChallenge.txt
@@ -28,18 +20,14 @@ public class NavanChallenge {
         Map<Integer, Deque<Integer>> dequeMap = new HashMap<>();
         int j = 0;
         for (Integer i : arr) {
-            Deque<Integer> deq;
-            if (map.containsKey(i)) {
-                map.put(i, map.get(i) + 1);
-                deq = dequeMap.get(i);
-                deq.offer(j);
-                dequeMap.put(i, deq);
-            } else {
-                map.put(i, 1);
-                deq = new ArrayDeque<>();
-                deq.offer(j);
-                dequeMap.put(i, deq);
-            }
+            map.computeIfPresent(i, (k, v) -> v + 1);
+            map.putIfAbsent(i, 1);
+            dequeMap.computeIfAbsent(i, k -> new ArrayDeque<>());
+            int finalJ = j;
+            dequeMap.computeIfPresent(i, (k, v) -> {
+                v.offer(finalJ);
+                return v;
+            });
             j++;
         }
 
