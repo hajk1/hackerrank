@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 public class BinaryDivide {
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     static int solution(String s) {
         s = s.replaceAll("^0+", "");
         int count = 0;
@@ -26,6 +31,7 @@ public class BinaryDivide {
 
     public static char[] binaryDivideByTwo(char[] s) {
         return Arrays.copyOfRange(s, 0, s.length - 1);
+//        return IntStream.range(0, s.length-1).mapToObj(i ->s[i]).toArray();
     }
 
     private static boolean isZero(char[] s) {

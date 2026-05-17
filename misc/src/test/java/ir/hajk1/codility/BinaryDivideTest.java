@@ -1,22 +1,34 @@
 package ir.hajk1.codility;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BinaryDivideTest {
 
     @Test
     void testSolution() {
-        assertEquals(7, BinaryDivide.solution("011100"));
+        assertEquals(7, BinaryDivide2.solution("011100"));
         assertEquals(5, BinaryDivide.solution("111"));
         assertEquals(22, BinaryDivide.solution("1111010101111"));
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 400_000; i++) {
             sb.append("1");
         }
-        assertEquals(799_999, BinaryDivide.solution(sb.toString()));
+        assertEquals(799_999, BinaryDivide2.solution(sb.toString()));
 
+    }
+
+    @Test
+    void testSolutionV3() {
+        assertEquals(7, BinaryDivideV3.solution("011100"));
+        assertEquals(5, BinaryDivideV3.solution("111"));
+        assertEquals(22, BinaryDivideV3.solution("1111010101111"));
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 400_000; i++) {
+            sb.append("1");
+        }
+        assertEquals(799_999, BinaryDivideV3.solution(sb.toString()));
     }
 
     @Test

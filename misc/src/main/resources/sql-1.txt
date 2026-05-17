@@ -1,0 +1,98 @@
+
+-- 1. Write a query to list all employees who earn higher salary than the average of their department.
+
+-- 2. Write a query to find the year in which the most employee joined the company.  Display year, number of employees joined.
+
+
+select * from employees;
+
+-- select sum(salary),avg(salary) from employees;
+select * from employees em inner join employees em2 on em.department_id=em2.department_id where em.salary>(select avg(salary) from employees);
+select * from employees;
+select * from departments;
+
+ select avg(salary),department_id from employees group by department_id;
+select * from employees em inner join departments dp on em.department_id=dp.id where em.salary>(select avg(salary) from employees where department_id=dp.id);
+
+select * from employees em  where em.salary>(select avg(salary) from employees where department_id=em.id);
+
+
+
+-- year(hiredate)
+
+select year(hiredate) from employees group by year(hiredate) order by year(hiredate) desc
+
+
+
+--------------
+select * from employees
+--------------
+
++----+------------+-----------+--------+---------------+
+| id | first_name | last_name | salary | department_id |
++----+------------+-----------+--------+---------------+
+|  1 | John       | Smith     |  20000 |             1 |
+|  2 | Ava        | Muffinson |  10000 |             5 |
+|  3 | Cailin     | Ninson    |  30000 |             2 |
+|  4 | Mike       | Peterson  |  20000 |             2 |
+|  5 | Ian        | Peterson  |  80000 |             2 |
+|  6 | John       | Mills     |  50000 |             3 |
++----+------------+-----------+--------+---------------+
+6 rows in set (0.00 sec)
+
+--------------
+select * from departments
+--------------
+
++----+-------------+
+| id | name        |
++----+-------------+
+|  1 | Reporting   |
+|  2 | Engineering |
+|  3 | Marketing   |
+|  4 | Biz Dev     |
+|  5 | Silly Walks |
++----+-------------+
+5 rows in set (0.00 sec)
+
+--------------
+select avg(salary),department_id from employees group by department_id
+--------------
+
++-------------+---------------+
+| avg(salary) | department_id |
++-------------+---------------+
+|  20000.0000 |             1 |
+|  43333.3333 |             2 |
+|  50000.0000 |             3 |
+|  10000.0000 |             5 |
++-------------+---------------+
+4 rows in set (0.01 sec)
+
+--------------
+select * from employees em inner join departments dp on em.department_id=dp.id where em.salary>(select avg(salary) from employees where department_id=dp.id)
+--------------
+
++----+------------+-----------+--------+---------------+----+-------------+
+| id | first_name | last_name | salary | department_id | id | name        |
++----+------------+-----------+--------+---------------+----+-------------+
+|  5 | Ian        | Peterson  |  80000 |             2 |  2 | Engineering |
++----+------------+-----------+--------+---------------+----+-------------+
+1 row in set (0.00 sec)
+
+--------------
+select * from employees em  where em.salary>(select avg(salary) from employees where department_id=em.id)
+--------------
+
++----+------------+-----------+--------+---------------+
+| id | first_name | last_name | salary | department_id |
++----+------------+-----------+--------+---------------+
+|  5 | Ian        | Peterson  |  80000 |             2 |
++----+------------+-----------+--------+---------------+
+1 row in set (0.00 sec)
+
+Bye
+
+mysql>
+
+Write a SQL query to find all projects that have a single employee working on them. Please return the project titles.

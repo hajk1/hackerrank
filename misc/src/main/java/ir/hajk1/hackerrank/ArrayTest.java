@@ -1,4 +1,4 @@
-package main.java.ir.hajk1.hackerrank;
+package ir.hajk1.hackerrank;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,5 +17,8 @@ public class ArrayTest {
     inputStream = new FileInputStream("/tmp/hi.txt");
     System.out.println(inputStreams[0]);
     System.out.println(inputStream);
+    for (InputStream stream : inputStreams) {
+
+    }
   }
 }

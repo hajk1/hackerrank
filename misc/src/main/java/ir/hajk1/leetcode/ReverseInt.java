@@ -1,5 +1,7 @@
 package ir.hajk1.leetcode;
 
+import java.util.List;
+
 /*
 Given a signed 32-bit integer x, return x with its digits reversed.
 If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1],
@@ -15,6 +17,11 @@ public class ReverseInt {
     }
 
     public int reverse(int x) {
+        List<String>[] ll = new List[10];
+        List<Character>[] l2 = new List[10];
+        l2[0].add("".charAt(0));
+        StringBuilder sb = new StringBuilder();
+        sb.append("".charAt(0));
         var r = String.valueOf(Math.abs(x));
         var is_negative = x < 0;
         var chars = r.toCharArray();

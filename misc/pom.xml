@@ -39,7 +39,12 @@
       <scope>test</scope>
       <version>${junit-jupiter.version}</version>
     </dependency>
-
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <scope>provided</scope>
+      <version>1.18.28</version>
+    </dependency>
   </dependencies>
 
   <properties>

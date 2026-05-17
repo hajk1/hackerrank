@@ -12,7 +12,7 @@ public class StringSearch {
       String pre = search.substring(0, i);
       List<String> tmpList = new ArrayList<>();
       for (String product : products) {
-        if (product.startsWith(pre)) {
+          if (product.startsWith(pre)) {
           tmpList.add(product);
         }
 
