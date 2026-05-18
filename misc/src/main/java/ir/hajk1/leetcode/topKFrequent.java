@@ -14,7 +14,6 @@ public class topKFrequent {
     }
 
     public int[] topKFrequent(int[] nums, int k) {
-        int[] result = new int[k];
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             map.compute(num, (k2, v) -> (v == null ? 1 : v + 1));
